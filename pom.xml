@@ -4,7 +4,7 @@
  	<artifactId>java-study</artifactId>
  	<version>0.0.1-SNAPSHOT</version>
   
-  	<packaging>jar</packaging>
+  	<packaging>pom</packaging>
   	
   	<properties>
 		  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -13,7 +13,8 @@
 		  <maven.compiler.target>17</maven.compiler.target>
 	  </properties>
 	  
-	  <build>
-		  <finalName>java-study</finalName>
-	  </build>
+
+  	<modules>
+  		<module>chapter03</module>
+  	</modules>
 </project>
