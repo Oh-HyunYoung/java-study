@@ -2,7 +2,7 @@ package tv;
 
 public  class WatchTV {
     public static void main( String[] args ) {
-       TV tv = new TV( 7, 20, false);  	//채널 볼륨 
+       TV tv = new TV(7, 20, false);  	//채널 볼륨 전원
         
         tv.status();	
         
