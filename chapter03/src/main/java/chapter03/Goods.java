@@ -26,7 +26,7 @@ public class Goods {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = name; // this는 이름이 헷갈릴때 사용(다른 변수와), 보통 생략
 	}
 	public int getPrice() {
 		return price;
