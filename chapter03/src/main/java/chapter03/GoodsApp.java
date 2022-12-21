@@ -8,8 +8,21 @@ public class GoodsApp {
 		camera.setPrice(400000);
 		camera.setCountStock(30);
 		camera.setCountSold(50);
-		
 		camera.printInfo();
+		
+		//int price = 1000;
+		
+		
+		// 정보은닉(데이터보호)
+		camera.setPrice(-1);
+		Goods goods2 = new Goods();
+		Goods goods3 = new Goods();
+		
+		System.out.println(Goods.countOfGoods);
+		
+		camera.setPrice(400000);
+	
+		System.out.println(camera.calcDiscountPrice(0.5f));
 	}
 
 }
