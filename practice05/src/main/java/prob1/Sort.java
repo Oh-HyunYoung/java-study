@@ -13,28 +13,22 @@ public class Sort {
 			System.out.print( array[ i ] + " " );
 		}
 		
-		//
 		// 정렬 알고리즘이 적용된 코드를 여기에 작성합니다.
-		//
-
-		
+		for(int i = 0; i < array.length; i++) {
+	        for(int j = 0 ; j < array.length - i - 1 ; j++) {
+	            if(array[j] < array[j+1]) {
+	                int temp = array[j+1];
+	                array[j+1] = array[j];
+	                array[j] = temp;
+	            }
+	        }
+	    }
 		// 결과 출력
 		System.out.println( "\nAfter Sort." );
 		
 		for (int i = 0; i < count; i++) {
+			
 			System.out.print(array[i] + " ");
 		}		
 	}
 }
-//1회
-//5 9 3 8 60 20 1
-//9 5 3 8 60 20 1
-//9 5 8 3 60 20 1
-//9 5 8 60 3 20 1
-//9 5 8 60 20 3 1
-
-//2회 구현하기
-//9 5 8 60 20 3 1
-//9 8 5 60 20 3 1
-//9 8 60 5 20 3 1
-//9 8 60 20 5 3 1
