@@ -1,5 +1,6 @@
 package prob02;
 
+import java.awt.print.Book;
 import java.util.Scanner;
 
 public class BookShop {
@@ -18,15 +19,29 @@ public class BookShop {
 		books[8] = new Book( 9,"태백산맥","조정래");
 		books[9] = new Book( 10,"풀하우스","원수연");
 		
+
+		
+		// (1) Book 객체의 정보를 출력
+		System.out.println("*****도서 정보 출력하기******");
+		displayBookInfo( books );
+				
+		// (2) 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
 		int num = scanner.nextInt();
 		scanner.close();
-		
-		// (1) 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
-		
-		// (2) Book 객체의 정보를 출력
+		//getter setter 만들지 말기
+		//생성자에서 세팅됨 책 제목 옆에 책번호 출력해주기
+		// (1) Book 객체의 정보를 출력
 		System.out.println("*****도서 정보 출력하기******");
 		displayBookInfo( books );
 	}
+	
+	private static void displayBookInfo(Book[] books) {
+		for(Book book:books) {
+			book.print();
+		}
+	}
 }
+// Book클래스 만들기 (책번호(인덱스 아님), 책제목, 책저자)
+// 상태코드 statecode 1

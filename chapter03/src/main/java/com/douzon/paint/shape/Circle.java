@@ -1,4 +1,4 @@
-package paint;
+package com.douzon.paint.shape;
 
 public class Circle extends Shape {
 	

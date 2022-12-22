@@ -8,7 +8,7 @@ public class MainApp {
 			stack.push("Hello");
 			stack.push("World");
 			stack.push("!!!");
-			stack.push("java");
+			stack.push("java"); //배열늘리기
 			stack.push(".");
 
 			while (stack.isEmpty() == false) {
@@ -29,5 +29,5 @@ public class MainApp {
 		}
 
 	}
-
+//arraylist linkedlist 차이점
 }

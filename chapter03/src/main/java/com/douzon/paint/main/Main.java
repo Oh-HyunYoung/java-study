@@ -1,4 +1,13 @@
-package paint;
+package com.douzon.paint.main;
+
+import com.douzon.paint.i.Drawable;
+import com.douzon.paint.point.ColorPoint;
+import com.douzon.paint.point.Point;
+import com.douzon.paint.shape.Circle;
+import com.douzon.paint.shape.Rect;
+import com.douzon.paint.shape.Shape;
+import com.douzon.paint.shape.Triangle;
+import com.douzon.paint.text.GraphicText;
 
 public class Main {
 

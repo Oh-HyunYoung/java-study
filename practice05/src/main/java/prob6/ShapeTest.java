@@ -1,17 +1,14 @@
 package prob6;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ShapeTest {
 
 	public static void main(String[] args) {
-		List<Shape> list = new ArrayList<Shape>();
+		Shape[] list = new Shape[2];
 		
-		list.add( new Rectangle(5, 6) );
-		list.add( new RectTriangle( 6, 2) );
+		list[0] = new Rectangle(5, 6);
+		list[1] = new RectTriangle(6, 2);
 		
-		for( Shape shape : list ) {
+		for(Shape shape : list) {
 			System.out.println( "area:" + shape.getArea() );
 			System.out.println( "perimeter:" + shape.getPerimeter() );
 			
@@ -20,7 +17,7 @@ public class ShapeTest {
 				resizable.resize( 0.5 );
 				System.out.println( "new area:" + shape.getArea() );
 				System.out.println( "new perimeter:" + shape.getPerimeter() );
-			}
+			} //Math.sqrt(w*w+h*h) 넓이?
 		}
 	}
 }
