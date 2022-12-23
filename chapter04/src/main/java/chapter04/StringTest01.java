@@ -16,7 +16,9 @@ public class StringTest01 {
 		System.out.println("hello\tworld\n");
 		System.out.println("hello\tworld");
 		
-		//++ 더적기
+		// '
+		char c = '\'';
+		System.out.println(c);
 		
 	}
  
