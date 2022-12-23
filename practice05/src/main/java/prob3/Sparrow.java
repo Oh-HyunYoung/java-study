@@ -1,5 +1,5 @@
 package prob3;
 
-public class Sparrow {
-
+public class Sparrow extends Bird{
+	String name;
 }
