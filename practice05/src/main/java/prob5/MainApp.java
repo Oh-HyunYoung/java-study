@@ -1,16 +1,18 @@
 package prob5;
 
+import java.util.EmptyStackException;
+
 public class MainApp {
 
 	public static void main(String[] args) {
-		try {
+//		try {
 			MyStack stack = new MyStack(3);
 			stack.push("Hello");
 			stack.push("World");
 			stack.push("!!!");
 			stack.push("java"); //배열늘리기
 			stack.push(".");
-
+//			stack.print();
 			while (stack.isEmpty() == false) {
 				String s = stack.pop();
 				System.out.println( s );
@@ -24,10 +26,12 @@ public class MainApp {
 			System.out.println(stack.pop());
 			System.out.println(stack.pop());
 			
-		} catch ( MyStackException ex) {
-			System.out.println( ex );
-		}
+//		} catch ( EmptyStackException ex) {
+//			System.out.println( ex );
+//		}
+	
 
 	}
-//arraylist linkedlist 차이점
+
 }
+

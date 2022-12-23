@@ -17,7 +17,7 @@ public class ShapeTest {
 				resizable.resize( 0.5 );
 				System.out.println( "new area:" + shape.getArea() );
 				System.out.println( "new perimeter:" + shape.getPerimeter() );
-			} //Math.sqrt(w*w+h*h) 넓이?
+			}
 		}
 	}
 }
