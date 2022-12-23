@@ -14,7 +14,7 @@ public class HashSetTest {
 		
 		set.add(r1);
 		set.add(r2);
-		set.add(r2);
+		set.add(r3);
 		
 		for(Rect r:set) {
 			System.out.println(r);
