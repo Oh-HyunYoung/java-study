@@ -7,6 +7,7 @@ public class MoneyTest {
 		Money two = new Money(2);
 		Money three = new Money(3);
 		Money ten = new Money(10);
+		
 
 		if (five.equals(two.add(three)) // 같은지 비교
 				&& three.equals(five.minus(two)) //concat?

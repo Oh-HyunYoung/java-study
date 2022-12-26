@@ -26,13 +26,38 @@ public class CalcApp {
 			int rValue = Integer.parseInt( tokens[ 1 ] );
 			
 			Arithmetic arithmetic = null;
-			
+			int n;
 			/* 코드 작성 */
-			
+			switch( tokens[ 2 ] ) {
+			case "+" : {
+				arithmetic = new Add();
+				n=arithmetic.calculate(lValue, rValue);
+				break;
+			}
+			case "-" : {
+				arithmetic = new Sub();
+				n=arithmetic.calculate(lValue, rValue);
+				break;
+			}
+			case "*" : {
+				arithmetic = new Mul();
+				n=arithmetic.calculate(lValue, rValue);
+				break;					
+			}
+			case "/" : {
+				arithmetic = new Div();
+				n=arithmetic.calculate(lValue, rValue);
+				break;
+			}
+		}
+	
 			int result = arithmetic.calculate(lValue, rValue);
 			System.out.println( ">> " + result );
 		}
 		
 		scanner.close();
 	}
+
+
+
 }

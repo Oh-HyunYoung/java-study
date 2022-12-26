@@ -35,8 +35,20 @@ public class LoginMain {
 		}
 	}
 	
-	public static void login(List<User> users, User user ){ //users 메모리 DB
-		/* 코드 작성 */
+	public static void login(List<User> users, User user ){ 
+		for(int i=0; i<users.size();i++) {
+			if(users.get(i).getId().equals(user.getId()) &&users.get(i).getPassword().equals(user.getPassword())) {
+				break;
+			} else if(users.get(i).getId().equals(user.getId())) {
+				throw new PasswordDismatchException();
+				}
+			else {
+				if(users.size()-1==i) {
+					throw new UserNotFoundException();
+
+				}
+			}
+		}
 		
 	}
 }

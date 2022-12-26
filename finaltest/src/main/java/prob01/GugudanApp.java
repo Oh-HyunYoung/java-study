@@ -35,8 +35,9 @@ public class GugudanApp {
 		Scanner s = new Scanner(System.in);
 		int answer = s.nextInt();
 		s.close();
-
+		
 		System.out.println((answer == resultNumber) ? "정답" : "오답");
+		
 	}
 
 	private static int randomize(int lNum, int rNum) {
@@ -44,10 +45,16 @@ public class GugudanApp {
 		return random;
 	}
 
-	private static int[] randomizeAnswers() { // 정답이랑 중복 되지 않고 구구단에 있는 9개의 답 뽑기
+	private static int[] randomizeAnswers() { 
 		/* 코드 작성(수정 가능) */
 		final int COUNT_ANSWER_NUMBER = 9;
 		int[] boardNumbers = new int[COUNT_ANSWER_NUMBER];
+
+		for(int i=0; i<COUNT_ANSWER_NUMBER; i++) {
+			boardNumbers[i] += (Math.random()*81)+1;
+		}
 		return boardNumbers;
 	}
+
+
 }
