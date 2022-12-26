@@ -55,14 +55,14 @@ public class GenericTest {
 	/**
 	 * ?Generic Parameter Wildcard
 	 * 
-	 * 1) 제네릭 타입의 클래스를 사용할 때, 제한(extends, super와 함께) 
-	 * 적으로 제너릭 타입을 결정해야 할 때 사용한다.
+	 * 1) 제네릭 타입의 클래스를 사용할 때, 제한(extends, super와 함께)적으로
+	 *  제너릭 타입을 결정해야 할 때 사용한다.
 	 * 
 	 * 2) 사용할 수 없는 예
 	 * 	- 이 클래스를 제너릭 타입으로 정의할까?				
 	 * 		MyStack<?> x
 	 * 
-	 *	- 이 클래스를  shape 자식읭 제너릭 타입으로 정의한다.
+	 *	- 이 클래스를  shape 자식의 제너릭 타입으로 정의할까?
 	 *		 MyStack<? extends Shape> x
 	 *
 	 *	- 이 메소드의 첫 번째 파라미터를 제네릭 타입으로 할까? 
