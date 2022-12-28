@@ -7,27 +7,24 @@ public class Prob04 {
 		
 		char[] c2 = reverse( "Java Programming!" );
 		printCharArray( c2 );
-		
-		//StringBuffer sb = new StringBuffer();
-		
 
 	}
 	
 	public static char[] reverse(String str) {
-		/* 코드를 완성합니다 */
-		int len = str.length();
-		char[] result = new char [len]; //뒤집는 알고리즘 찾기 result를 뒤집
 		
-		str.charAt(0);
+		int len = str.length(); 		// reverse의 길이 가져옴
+		char[] result = new char [len]; 
+		
+		str.charAt(0);					// Str(String)에 저장된 문자열 중 한 글자만 선택해 char타입으로 변환
 		for(int i =str.length()-1; i>=0; i--) {
-			result[i] = str.charAt(str.length()-i-1);
+			result[i] = str.charAt(str.length()-i-1); // str 뒤에서 부터 하나씩 result[] 배열에 넣어줌
 		}
 		return result;
 	}
 
 	public static void printCharArray(char[] array){
-		/* 코드를 완성합니다 */
-		for(char c:array) System.out.print(c);
+		
+		for(char c:array) System.out.print(c); // c부터 array 열 출력
 		System.out.println();
 
 	}

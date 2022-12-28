@@ -12,24 +12,31 @@ public class Prob05 {
 	
 			/* 게임 작성 */
 			int cnt = 0;
+			int min = 1;
+			int max = 100;
+			
 			// 정답 램덤하게 만들기
 			Random random = new Random();
-			int correctNumber = random.nextInt( 100 ) + 1;
+			int correctNumber = random.nextInt(max) + min;
 			System.out.println("수를 결정하였습니다. 맞추어보세요 "+correctNumber);
-			int down =1, up=100;
+	
 			while(true){
 				cnt++;
 				int answer = scanner.nextInt();
+				
 				System.out.println(cnt+">>"); 
-				System.out.println(down+"-"+up);
+				System.out.println(min+"-"+max);
+				
 				if (correctNumber>answer) {
-					down = answer;
+					min = answer;
 					System.out.println("더 높게");
 				}
+				
 				else if (correctNumber<answer) {
-					up = answer;
+					max = answer;
 					System.out.println("더 낮게");
 				}
+				
 				else if(answer == correctNumber) {
 					System.out.println("맞았습니다.");
 					break;

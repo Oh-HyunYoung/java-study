@@ -10,12 +10,12 @@ public class Prob01 {
 		int cnt = 0;
 		System.out.println("금액 : ");
 		int money = scanner.nextInt();
-		for (int i:MONEYS) {
+		for (int i:MONEYS) { 			//	i: MONEYS 단위
 			
 			while(true) {
-				if(money-i>=0) {
-					money-=i;
-					cnt++;
+				if(money-i>=0) {		//	입력받은 값-MONEY이 0보다 클 때까지
+					money-=i;			
+					cnt++;				//	cnt: MONEYS의 갯수
 				}
 				else {
 					break;
