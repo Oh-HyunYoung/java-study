@@ -108,18 +108,37 @@ public class RequestHandler extends Thread {
 
 	}
 
-	private void reponse404Error(OutputStream outputStream, String protocol) {
+	private void reponse404Error(OutputStream outputStream, String protocol) throws IOException {
 		// HTTP/1.1 404 Not Found
 		// Content-Type:.....
 		// \r\n
 		// .....
+		String url = "/error/404.html";
+		File file = new File(DOCUMENT_ROOT+url);
+		
+		byte[] body = Files.readAllBytes(file.toPath());
+
+		outputStream.write( (protocol+" 404 Not Found\r\n").getBytes( "UTF-8" ) );
+		outputStream.write(("Content-Type:text/html\r\n".getBytes( "UTF-8" )));
+		outputStream.write( "\r\n".getBytes() );
+		outputStream.write(body);
+
 	}
 	
-	private void reponse400Error(OutputStream outputStream, String protocol) {
+	private void reponse400Error(OutputStream outputStream, String protocol) throws IOException {
 		// HTTP/1.1 400 Bad Request 로그인 누르면 400에러
-				// Content-Type:.....
-				// \r\n
-				// .....
+		// Content-Type:.....
+		// \r\n
+		// .....
+		String url = "/error/400.html";
+		File file = new File(DOCUMENT_ROOT+url);
+		
+		byte[] body = Files.readAllBytes(file.toPath());
+
+		outputStream.write((protocol+" 400 Bad Request\r\n").getBytes( "UTF-8" ));
+		outputStream.write(("Content-Type:text/html\\r\\n".getBytes( "UTF-8" )));
+		outputStream.write( "\r\n".getBytes() );
+		outputStream.write(body);
 	}
 
 	public void consoleLog( String message ) {
