@@ -14,7 +14,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ChatWindow {
-
 	private Frame frame;
 	private Panel pannel;
 	private Button buttonSend;
@@ -29,16 +28,18 @@ public class ChatWindow {
 		textArea = new TextArea(30, 80);
 	}
 
-	public void show() {
+	public void show() { // 버튼 디자인
 		// Button
 		buttonSend.setBackground(Color.GRAY);
 		buttonSend.setForeground(Color.WHITE);
-		buttonSend.addActionListener( new ActionListener() {
+		buttonSend.addActionListener(new ActionListener() {
+
 			@Override
-			public void actionPerformed( ActionEvent actionEvent ) {
+			public void actionPerformed(ActionEvent actionEvent) {		
 				sendMessage();
 			}
-		});
+	});		
+
 
 		// Textfield
 		textField.setColumns(80);
@@ -54,15 +55,20 @@ public class ChatWindow {
 		frame.add(BorderLayout.CENTER, textArea);
 
 		// Frame
-		frame.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-		});
+//		frame.addWindowListener(new WindowAdapter() {
+//			public void windowClosing(WindowEvent e) {
+//				System.exit(0);
+//			}
+//		}); // 적어보기
 		frame.setVisible(true);
 		frame.pack();
 	}
 	
 	private void sendMessage() {
+		String message = textField.getText();
+		System.out.println("메세지 보내는 프로토콜 구현: " + message);
+		
+		textField.setText("");
+		textField.requestFocus();
 	}
 }

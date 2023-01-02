@@ -11,42 +11,42 @@ import java.net.SocketException;
 
 public class EchoRequestHandler extends Thread {
 	private Socket socket;
-	
+
 	public EchoRequestHandler(Socket socket) {
 		this.socket = socket;
 	}
-	
+
 	@Override
 	public void run() {
-		InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress)socket.getRemoteSocketAddress();
+		InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
 		String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
 		int remotePort = inetRemoteSocketAddress.getPort();
 		log("connected by client[" + remoteHostAddress + ":" + remotePort + "]");
-		
+
 		try {
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
-			
-			while(true) {
+
+			while (true) {
 				String data = br.readLine();
-				if(data == null) {
+				if (data == null) {
 					log("closed by client");
 					break;
 				}
-				
+
 				log("received:" + data);
 				pw.println(data);
 			}
-		} catch(SocketException ex) {
+		} catch (SocketException ex) {
 			System.out.println("[server] suddenly closed by client");
-		} catch(IOException ex) {
+		} catch (IOException ex) {
 			log("error:" + ex);
 		} finally {
 			try {
-				if(socket != null && !socket.isClosed()) {
+				if (socket != null && !socket.isClosed()) {
 					socket.close();
 				}
-			} catch(IOException ex) {
+			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
 		}
