@@ -34,7 +34,7 @@ public class ChatClientApp {
 			System.out.println("대화명은 한글자 이상 입력해야 합니다.\n");
 		}		
 		
-		// 1. create socket
+		// 1. create socket 
 		socket = new Socket();
 		
 		// 2. connect to server
