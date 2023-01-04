@@ -2,12 +2,9 @@ package chat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -17,8 +14,8 @@ import java.util.List;
 public class ChatServerThread extends Thread {
 	private String nickname;
 	private Socket socket;
-	BufferedReader br = null;
-	PrintWriter pw = null;
+//	BufferedReader br = null;
+//	PrintWriter pw = null;
 
 	List<Writer> listWriters = new ArrayList<Writer>();
 
@@ -30,17 +27,15 @@ public class ChatServerThread extends Thread {
 
 	@Override
 	public void run() {
-		String request;
-
 		try {
 			// 2. 스트림 얻기
-			br = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
 
 			// 3. 요청 처리
 			// 4. 프로토콜 분석
 			while (true) {
-				request = br.readLine();
+				String request = br.readLine();
 				if (request == null) {
 					log("클라이언트로부터 연결 끊김");
 					doQuit(pw);
@@ -56,6 +51,7 @@ public class ChatServerThread extends Thread {
 					doQuit(pw);
 				}
 			}
+
 		} catch (IOException e) {
 			log("채팅방을 나갔습니다.");
 		}
@@ -73,7 +69,7 @@ public class ChatServerThread extends Thread {
 		}
 	}
 
-	private void doJoin(String nickName, Writer writer) throws IOException {
+	private void doJoin(String nickName, Writer writer) {
 		this.nickname = nickName;
 
 		String data = nickName + "님이 참여하였습니다.";
@@ -84,10 +80,10 @@ public class ChatServerThread extends Thread {
 
 		// ack
 		((PrintWriter) writer).println("join:ok");
-		writer.flush();
+//		writer.flush();
 	}
 
-	private void doQuit(Writer writer) throws IOException {
+	private void doQuit(Writer writer){
 		removeWriter(writer);
 		String data = nickname + "님이 퇴장하였습니다.";
 		broadcast(data);
@@ -97,12 +93,12 @@ public class ChatServerThread extends Thread {
 		listWriters.remove(writer);
 	}
 
-	private void doMessage(String message) throws IOException {
+	private void doMessage(String message) {
 		String data = nickname + ":" + message;
 		broadcast(data);
 	}
 
-	private void addWriter(Writer writer) throws IOException {
+	private void addWriter(Writer writer) {
 		synchronized (listWriters) {
 			listWriters.add(writer);
 		}

@@ -48,8 +48,7 @@ public class ChatServer {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		scanner.close();
+		} scanner.close();
 
 	}
 
