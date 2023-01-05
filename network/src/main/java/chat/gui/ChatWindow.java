@@ -17,16 +17,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import chat.ChatClientThread;
-
 public class ChatWindow {
 	private Frame frame;
 	private Panel pannel;
 	private Button buttonSend;
 	private TextField textField;
 	private TextArea textArea;
-	private String name;
-	private BufferedReader br;
+//	private String name;
+//	private BufferedReader br;
 	private PrintWriter pw;
 
 	public ChatWindow(String name, BufferedReader br, PrintWriter pw) {
@@ -35,9 +33,9 @@ public class ChatWindow {
 		buttonSend = new Button("Send");
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
-		this.name = name;
+//		this.name = name;
 		this.pw = pw;
-		this.br = br;
+//		this.br = br;
 		new ChatClientThread(br).start();
 	
 	}
@@ -86,16 +84,10 @@ public class ChatWindow {
 		});
 		frame.setVisible(true);
 		frame.pack();
-
-		// IOStream 받아오기
-		// ChatClientTread 생성
-
 	}
 
 	private void finish() {
-		// quit protocol 구현
 		pw.println("quit");
-		// exit java(Application)
 		System.exit(0);
 	}
 
@@ -109,7 +101,7 @@ public class ChatWindow {
 		if (message.equals("quit")) {
 			finish();
 		} else if (message.equals("")) {
-
+			
 		} else {
 			pw.println("message:" + message);
 		}
@@ -130,19 +122,14 @@ public class ChatWindow {
 
 		@Override
 		public void run() {
-
 			try {
 				while (true) {
 					String message = bufferedReader.readLine();
-					System.out.println(message);
 					updateTextArea(message);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-			updateTextArea("...");
 		}
-
 	}
 }

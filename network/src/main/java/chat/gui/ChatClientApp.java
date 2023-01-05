@@ -16,13 +16,10 @@ public class ChatClientApp {
 	private static Socket socket;
 	private static final String IP_ADDRESS = "127.0.0.1";
 	private static final int SERVER_PORT = 5000;
-	private String request;
-	
 	public static void main(String[] args) {
 		String name = null;
 		Scanner scanner = new Scanner(System.in);
 		
-
 		while( true ) {	
 			System.out.println("대화명을 입력하세요.");
 			System.out.print(">>> ");
