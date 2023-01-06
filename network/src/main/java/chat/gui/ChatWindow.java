@@ -23,8 +23,6 @@ public class ChatWindow {
 	private Button buttonSend;
 	private TextField textField;
 	private TextArea textArea;
-//	private String name;
-//	private BufferedReader br;
 	private PrintWriter pw;
 
 	public ChatWindow(String name, BufferedReader br, PrintWriter pw) {
@@ -33,9 +31,7 @@ public class ChatWindow {
 		buttonSend = new Button("Send");
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
-//		this.name = name;
 		this.pw = pw;
-//		this.br = br;
 		new ChatClientThread(br).start();
 	
 	}
@@ -89,6 +85,13 @@ public class ChatWindow {
 	private void finish() {
 		pw.println("quit");
 		System.exit(0);
+		if (ChatClientApp.socket != null && !ChatClientApp.socket.isClosed()) {
+			try {
+				ChatClientApp.socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void sendMessage() {

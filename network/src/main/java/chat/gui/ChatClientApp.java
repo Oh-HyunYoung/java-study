@@ -13,7 +13,7 @@ import chat.ChatClientThread;
 
 public class ChatClientApp {
 	
-	private static Socket socket;
+	public static Socket socket;
 	private static final String IP_ADDRESS = "127.0.0.1";
 	private static final int SERVER_PORT = 5000;
 	public static void main(String[] args) {
@@ -40,18 +40,12 @@ public class ChatClientApp {
 			// 3. get iostream
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
-
+			
 			// 4. join protocol 진행
 			pw.println("join:" + name);
 			String line = br.readLine();
 			if("join:ok".equals(line)) {
 				new ChatWindow(name,br,pw).show();
-			}
-			while(true) {
-				String input = scanner.nextLine();
-
-				if ("quit".equals(input))
-					break;
 			}
 
 		} catch (SocketException e) {
@@ -59,16 +53,9 @@ public class ChatClientApp {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if (socket != null && !socket.isClosed()) {
-					socket.close();
-				}
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			scanner.close();
 		}
-		scanner.close();
+		
 
 	}
 

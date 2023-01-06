@@ -36,16 +36,16 @@ public class ChatClient {
 			socket.connect(new InetSocketAddress(IP_ADDRESS, SERVER_PORT));
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
-
+			
 			pw.println("join:" + name);
 			new ChatClientThread(br).start();
+			
 			while (true) {
 				String input = scanner.nextLine();
-
+				pw.println("message:" + input);
+				
 				if ("quit".equals(input))
 					break;
-
-				pw.println("message:" + input);
 			}
 
 		} catch (SocketException e) {

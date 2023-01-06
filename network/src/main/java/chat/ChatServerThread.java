@@ -14,8 +14,6 @@ import java.util.List;
 public class ChatServerThread extends Thread {
 	private String nickname;
 	private Socket socket;
-//	BufferedReader br = null;
-//	PrintWriter pw = null;
 
 	List<Writer> listWriters = new ArrayList<Writer>();
 
@@ -74,13 +72,12 @@ public class ChatServerThread extends Thread {
 
 		String data = nickName + "님이 참여하였습니다.";
 		broadcast(data);
-
+		
 		// writer pool에 저장
 		addWriter(writer);
 
 		// ack
 		((PrintWriter) writer).println("join:ok");
-//		writer.flush();
 	}
 
 	private void doQuit(Writer writer){
@@ -96,6 +93,7 @@ public class ChatServerThread extends Thread {
 	private void doMessage(String message) {
 		String data = nickname + ":" + message;
 		broadcast(data);
+		
 	}
 
 	private void addWriter(Writer writer) {
