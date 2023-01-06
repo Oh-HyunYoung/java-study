@@ -55,5 +55,4 @@ public class ChatServer {
 	static void log(String message) {
 		System.out.println("[ChatServer#" + Thread.currentThread().getId() + "] " + message);
 	}
-
 }

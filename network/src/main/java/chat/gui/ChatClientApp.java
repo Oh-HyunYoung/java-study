@@ -9,7 +9,6 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.Scanner;
 
-import chat.ChatClientThread;
 
 public class ChatClientApp {
 	
