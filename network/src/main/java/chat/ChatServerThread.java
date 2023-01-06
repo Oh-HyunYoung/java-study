@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,11 +75,16 @@ public class ChatServerThread extends Thread {
 		String data = nickName + "님이 참여하였습니다.";
 		broadcast(data);
 		
+		LocalTime now = LocalTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
+		String formatedNow = now.format(formatter);
+
 		// writer pool에 저장
 		addWriter(writer);
-
+		
 		// ack
 		((PrintWriter) writer).println("join:ok");
+		((PrintWriter) writer).println(formatedNow + "에 입장하였습니다.");
 	}
 
 	private void doQuit(Writer writer){

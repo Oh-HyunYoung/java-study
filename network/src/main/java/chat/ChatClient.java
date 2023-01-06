@@ -10,6 +10,8 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.Scanner;
 
+
+
 public class ChatClient {
 
 	private static Socket socket;
@@ -19,9 +21,10 @@ public class ChatClient {
 	public static void main(String[] args) {
 		String name = null;
 		Scanner scanner = new Scanner(System.in);
-
 		socket = new Socket();
+		
 
+		
 		while (true) {
 			System.out.print("닉네임을 입력해주세요>>");
 			name = scanner.nextLine();
